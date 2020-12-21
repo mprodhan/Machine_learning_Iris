@@ -1,5 +1,7 @@
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn import metrics
 
 iris = load_iris()
 # print(iris)
@@ -24,3 +26,8 @@ print(X_train.shape)
 print(X_test.shape)
 # Both of these print statement gives us, (rows, 4(dimensionality)).
 # (90, 4)  means 90 rows from the test_size over its dimensionality.
+
+knn = KNeighborsClassifier(n_neighbors=3)
+train = knn.fit(X_train, y_train)
+y_predict = knn.predict(X_test)
+print(metrics.accuracy_score(y_test, y_predict))

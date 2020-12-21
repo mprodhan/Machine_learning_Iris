@@ -31,3 +31,12 @@ knn = KNeighborsClassifier(n_neighbors=3)
 train = knn.fit(X_train, y_train)
 y_predict = knn.predict(X_test)
 print(metrics.accuracy_score(y_test, y_predict))
+
+sample = [
+    [3,5,4,2],
+    [2,3,5,4]
+]
+
+predictions = knn.predict(sample)
+predict_species = [iris.target_names[p] for p in predictions]
+print(" predictions : ", predict_species)
